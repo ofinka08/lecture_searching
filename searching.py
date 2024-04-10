@@ -30,11 +30,19 @@ def linear_search(numbers, number):
     return results
 
 
-def main():
-    unordered_numbers = read_data("sequential.json", "unordered_numbers")
-    result = linear_search(unordered_numbers, 5)
-    print(result)
+def pattern_search(sequence, pattern):
+    index = set()
+    for i in range(len(sequence)):
+        if sequence[i:(i + len(pattern))] == pattern:
+            index.add(i+1)
+    return index
 
+
+def main():
+    dna_sequence = read_data("sequential.json", "dna_sequence")
+    # result = linear_search(unordered_numbers, 5)
+    vyskyt = pattern_search(dna_sequence, "ATA")
+    print(vyskyt)
 
 
 if __name__ == '__main__':
